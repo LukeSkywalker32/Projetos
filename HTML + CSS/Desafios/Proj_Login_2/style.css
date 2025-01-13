@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", serif;
+}
+
+body {
+    background: url(img/Screen\ Shot\ 2022-05-10\ at\ 18.37\ 1.png) ;
+    background-repeat: no-repeat center center fixed;
+    background-size: cover;
+}
+
+img {
+    margin-top: 161px;
+    margin-bottom: 71px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input {
+    color: white;
+    font-size: 14px;
+    line-height: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    width: 300px;
+    height: 45px;
+    margin-bottom: 20px;
+    background-color: transparent;
+    padding-left: 20px;
+}
+
+input:focus{
+    outline: none;
+    
+}
+
+button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 45px;
+    width: 300px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    border:none;
+    margin-top: 50px;
+    cursor: pointer;
+
+    font-size: 16px;
+    font-weight: 600;
+    color: #2148C0;    
+}
+a {
+    margin-top: 10px;
+    display: block;
+    text-align: center;
+    margin-left: 160px;
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+}

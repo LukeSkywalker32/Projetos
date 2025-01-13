@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+div {
+    background:rgb(135,135,135) ;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;/*define a direção dos itens no container*/
+    flex-wrap: nowrap; /*define se os itens devem quebrar ou não a linha*/
+    /* flex-flow: row nowrap; propriedade "atalho" para flex-direction e flex-wrap */
+
+}
+
+section {
+    background: rgb(147,1,191);
+    /* width: 200px;
+    height: 300px; */
+    margin: 10px;
+    border: 2px solid black;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    display: flex;
+
+}
+.bloco1 {
+    flex-grow: 1;/*define o quanto o item pode crescer em relação aos outros itens*/
+    width: 100px;
+}
+.bloco2 {
+    flex-grow: 3;
+    width: 100px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo-Elemento</title>
+</head>
+<body>
+    <input placeholder="Digite seu nome">
+    
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis reprehenderit debitis fugiat non eos molestias, quae cum doloribus voluptas sint adipisci dolor, veniam ipsam voluptatum provident hic voluptate natus quos!</p>
+
+</body>
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+input {
+    margin: 40px;
+    border: 2px solid red;
+    padding: 10px;
+    font-weight: bolder;
+}
+
+input::placeholder {
+    color: blue;
+}
+p::after {
+    content:"🚀";
+}
+p::before {
+    content:"🚀";
+}
+
+p{
+    font-size: 20px;
+    color: #09efff;
+}
+p::first-letter {
+    color: red;
+}
+p::first-line {
+    color: blue;
+}
+
+
+</style>
+</html>

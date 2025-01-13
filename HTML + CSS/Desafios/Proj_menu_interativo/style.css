@@ -1,0 +1,108 @@
+/* Resetando margens, preenchimentos e definindo box-sizing */
+* {
+    margin: 0; /* Removendo margens padrão */
+    padding: 0; /* Removendo preenchimentos padrão */
+    box-sizing: border-box; /* Incluindo bordas e preenchimentos no tamanho total dos elementos */
+}
+
+/* Estilizando o corpo da página */
+body {
+    height: 100vh; /* Definindo altura da página como 100% da altura da janela de visualização */
+    background: #7d2ae8; /* Definindo cor de fundo */
+    display: flex; /* Usando flexbox para alinhar elementos filhos */
+    align-items: center; /* Centralizando elementos filhos verticalmente */
+    justify-content: center; /* Centralizando elementos filhos horizontalmente */
+}
+
+/* Estilizando a barra de navegação */
+.navbar {
+    position: relative; /* Definindo posição relativa para a barra de navegação */
+    height: 120px; /* Definindo altura da barra de navegação */
+    width: 500px; /* Definindo largura da barra de navegação */
+    background: #fff; /* Definindo cor de fundo da barra de navegação */
+    border-radius: 20px; /* Arredondando cantos da barra de navegação */
+    display: flex; /* Usando flexbox para alinhar elementos filhos */
+    align-items: center; /* Centralizando elementos filhos verticalmente */
+    justify-content: center; /* Centralizando elementos filhos horizontalmente */
+    overflow: hidden; /* Ocultando conteúdo que ultrapassa os limites da barra de navegação */
+}
+
+/* Estilizando a lista dentro da barra de navegação */
+.navbar ul {
+    position: relative; /* Definindo posição relativa para a lista */
+    display: flex; /* Usando flexbox para alinhar itens da lista */
+}
+
+/* Estilizando os itens da lista */
+.navbar ul li {
+    position: relative; /* Definindo posição relativa para os itens da lista */
+    list-style-type: none; /* Removendo marcadores da lista */
+}
+
+/* Estilizando os links dentro dos itens da lista */
+.navbar ul li a {
+    position: relative; /* Definindo posição relativa para os links */
+    height: 120px; /* Definindo altura dos links */
+    width: 90px; /* Definindo largura dos links */
+    display: flex; /* Usando flexbox para alinhar conteúdo dos links */
+    align-items: center; /* Centralizando conteúdo dos links verticalmente */
+    justify-content: center; /* Centralizando conteúdo dos links horizontalmente */
+    text-decoration: none; /* Removendo sublinhado dos links */
+}
+
+/* Estilizando os ícones dentro dos links */
+.navbar ul li a i {
+    color: #7d2ae8; /* Definindo cor dos ícones */
+    font-size: 38px; /* Definindo tamanho da fonte dos ícones */
+    position: absolute; /* Definindo posição absoluta para os ícones */
+}
+
+/* Estilizando o ícone ativo */
+.activeIcon {
+    opacity: 0; /* Tornando ícone invisível */
+    transition: all 0.4s ease; /* Definindo transição suave para todas as propriedades */
+    transition-delay: 0.2s; /* Adicionando atraso na transição */
+}
+
+/* Estilizando o ícone quando o item da lista está ativo */
+.navbar ul li.activeList a i {
+    opacity: 1; /* Tornando ícone visível */
+}
+
+/* Estilizando o indicador */
+.indicator {
+    position: absolute; /* Definindo posição absoluta para o indicador */
+    bottom: -19px; /* Posicionando indicador na parte inferior */
+    left: 34px; /* Posicionando indicador à esquerda */
+    width: 25px; /* Definindo largura do indicador */
+    height: 36px; /* Definindo altura do indicador */
+    background: #7d2ae8; /* Definindo cor de fundo do indicador */
+    border-radius: 50%; /* Arredondando o indicador */
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Definindo transição suave com curva de Bezier */
+}
+
+/* Estilizando o pseudo-elemento antes do indicador */
+.indicator::before {
+    content: ""; /* Adicionando conteúdo vazio */
+    position: absolute; /* Definindo posição absoluta para o pseudo-elemento */
+    left: -15px; /* Posicionando pseudo-elemento à esquerda */
+    bottom: 50%; /* Posicionando pseudo-elemento na metade inferior */
+    height: 22px; /* Definindo altura do pseudo-elemento */
+    width: 20px; /* Definindo largura do pseudo-elemento */
+    background: #fff; /* Definindo cor de fundo do pseudo-elemento */
+    border-bottom-right-radius: 20px; /* Arredondando canto inferior direito do pseudo-elemento */
+    box-shadow: 0 10px 0 #7d2ae8; /* Adicionando sombra ao pseudo-elemento */
+}
+
+/* Estilizando o pseudo-elemento depois do indicador */
+.indicator::after {
+    content: ""; /* Adicionando conteúdo vazio */
+    position: absolute; /* Definindo posição absoluta para o pseudo-elemento */
+    right: -15px; /* Posicionando pseudo-elemento à direita */
+    bottom: 50%; /* Posicionando pseudo-elemento na metade inferior */
+    height: 22px; /* Definindo altura do pseudo-elemento */
+    width: 20px; /* Definindo largura do pseudo-elemento */
+    background: #fff; /* Definindo cor de fundo do pseudo-elemento */
+    border-bottom-left-radius: 20px; /* Arredondando canto inferior esquerdo do pseudo-elemento */
+    box-shadow: 0 10px 0 #7d2ae8; /* Adicionando sombra ao pseudo-elemento */
+}

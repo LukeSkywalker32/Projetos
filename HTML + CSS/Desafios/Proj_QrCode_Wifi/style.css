@@ -1,0 +1,62 @@
+/* Estiliza o formulário com borda tracejada, padding e fonte */
+form {
+    border: dashed 2px #d1d5db;
+    padding: .5rem 2rem;
+    font: 16px sans-serif;
+}
+
+/* Define o layout flexível e o espaçamento entre os elementos internos */
+.internal {
+    display: flex;
+    gap: 2rem;
+}
+
+/* Define o layout flexível e a direção da coluna para os inputs, com espaçamento */
+.inputs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Define o layout flexível e a direção da coluna para os rótulos */
+label {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estiliza os campos de entrada com cor, fonte, altura, padding e borda */
+input {
+    color: #374151;
+    font-family: monospace;
+    height: 38px;
+    padding: 0 16px;
+    border: 1px solid #d1d5db;
+}
+
+/* Estiliza os parágrafos com fonte e cor */
+p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #374151;
+}
+
+/* Estiliza o botão com cor de fundo, cor do texto, borda arredondada e fonte */
+button {
+    background-color: #0ea5e9;
+    color: #fff;
+    border-radius: 0.25rem;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Esconde o botão e o contêiner de senha durante a impressão */
+@media print {
+    button {
+        display: none;
+    }
+    .password-container {
+        display: none;
+    }
+}

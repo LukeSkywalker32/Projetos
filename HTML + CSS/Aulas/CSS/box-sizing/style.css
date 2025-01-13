@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+/*
+ * A diferença entre border-box e content-box:
+ * 
+ * - border-box: O padding e a borda são incluídos na largura e altura totais do elemento.
+ * - content-box: O padding e a borda são adicionados à largura e altura do conteúdo, aumentando o tamanho total do elemento.
+ */
+.box {
+    background: #FF1493;
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+    border: 10px solid #0000ff;
+
+
+
+}

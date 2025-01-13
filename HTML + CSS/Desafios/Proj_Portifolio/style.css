@@ -1,0 +1,271 @@
+/* Resetando margens, preenchimentos e definindo box-sizing */
+* {
+    margin: 0; /* Removendo margens padrão */
+    padding: 0; /* Removendo preenchimentos padrão */
+    box-sizing: border-box; /* Incluindo bordas e preenchimentos no tamanho total dos elementos */
+    font-family: "Nunito", serif; /* Definindo a fonte padrão */
+}
+
+/* Estilizando a caixa principal */
+.caixa-principal {
+    height: 100vh; /* Definindo altura como 100% da altura da janela de visualização */
+    width: 100%; /* Definindo largura como 100% */
+    background-image: url(./img/logo_linguagens.png); /* Definindo imagem de fundo */
+    background-repeat: no-repeat; /* Impedindo repetição da imagem de fundo */
+    background-position: right; /* Posicionando imagem de fundo à direita */
+    background-color: #191919; /* Definindo cor de fundo */
+    background-size: 50%; /* Definindo tamanho da imagem de fundo */
+}
+
+/* Estilizando a barra de navegação */
+nav {
+    padding-top: 25px; /* Adicionando preenchimento superior */
+    display: flex; /* Usando flexbox para alinhar elementos filhos */
+    align-items: center; /* Centralizando elementos filhos verticalmente */
+    justify-content: space-between; /* Distribuindo espaço entre elementos filhos */
+    padding-left: 30px; /* Adicionando preenchimento à esquerda */
+    padding-right: 30px; /* Adicionando preenchimento à direita */
+    
+    /*criando um menu de rolagem e a transparência*/
+    position: fixed; /* Definindo posição fixa */
+    top: 0; /* Posicionando no topo */
+    width: 100%; /* Definindo largura como 100% */
+    z-index: 1000; /* Definindo ordem de empilhamento */
+    background-color: rgba(25, 25, 25, 0.8); /* Definindo cor de fundo com transparência */
+    transition: background-color 0.3s ease;/* Transição suave para a cor de fundo */
+}
+
+/* Estilizando links dentro da barra de navegação */
+nav a {
+    text-decoration: none; /* Removendo sublinhado dos links */
+    color: inherit; /* Herdando cor do elemento pai */
+}
+
+/* Estilizando o título dentro da barra de navegação */
+div nav h2 {
+    color: #ffffff; /* Definindo cor do texto */
+    font-size: 35px; /* Definindo tamanho da fonte */
+    font-weight: 700; /* Definindo peso da fonte */
+}
+
+/* Estilizando o span dentro do título do portfólio */
+.portfolio span {
+    color: #f9004d; /* Definindo cor do texto */
+}
+
+/* Estilizando itens da lista */
+li {
+    color: white; /* Definindo cor do texto */
+    list-style: none; /* Removendo marcadores da lista */
+    display: inline-block; /* Exibindo itens em linha */
+    font-size: 25px; /* Definindo tamanho da fonte */
+    font-weight: 650; /* Definindo peso da fonte */
+    margin-right: 30px; /* Adicionando margem à direita */
+    cursor: pointer; /* Alterando cursor ao passar o mouse */
+}
+
+/* Estilizando itens da lista ao passar o mouse */
+li:hover {
+    color: #f9004d; /* Alterando cor do texto */
+    transition: 0.5s; /* Definindo transição suave */
+}
+
+/* Estilizando a seção com o nome */
+.MeuNome {
+    position: absolute; /* Definindo posição absoluta */
+    top: 40%; /* Posicionando 40% do topo */
+    left: 5%; /* Posicionando 5% da esquerda */
+}
+
+/* Estilizando o título principal */
+h1 {
+    color: white; /* Definindo cor do texto */
+    font-size: 75px; /* Definindo tamanho da fonte */
+}
+
+/* Estilizando o span dentro do título principal */
+h1 span {
+    color: #f9004d; /* Definindo cor do texto */
+}
+
+/* Estilizando o subtítulo */
+.MeuNome h3 {
+    color: white; /* Definindo cor do texto */
+    font-size: 25px; /* Definindo tamanho da fonte */
+}
+
+/* Estilizando a seção */
+section {
+    height: 100vh; /* Definindo altura como 100% da altura da janela de visualização */
+    display: flex; /* Usando flexbox para alinhar elementos filhos */
+    align-items: center; /* Centralizando elementos filhos verticalmente */
+    padding: 50px 15%; /* Adicionando preenchimento */
+    background: #000000; /* Definindo cor de fundo */
+}
+
+/* Estilizando o título dentro da seção */
+section div h1 {
+    color: white; /* Definindo cor do texto */
+    font-size: 75px; /* Definindo tamanho da fonte */
+}
+
+/* Estilizando o parágrafo dentro da seção */
+section div p {
+    color: #e2b9c6; /* Definindo cor do texto */
+    font-size: 20px; /* Definindo tamanho da fonte */
+}
+
+/* Estilizando a imagem dentro da seção */
+section img {
+    height: 300px; /* Definindo altura da imagem */
+    width: 300px; /* Definindo largura da imagem */
+    border-radius: 100%; /* Arredondando bordas da imagem */
+    border: 2px solid #f9004d; /* Definindo borda da imagem */
+    margin-right: 30px; /* Adicionando margem à direita */
+}
+
+/* Estilizando o botão dentro da seção */
+section div button {
+    padding: 10px 20px; /* Adicionando preenchimento */
+    background: #f9004d; /* Definindo cor de fundo */
+    color: white; /* Definindo cor do texto */
+    border: 1px solid #f9004d; /* Definindo borda */
+    border-radius: 5px; /* Arredondando bordas */
+    font-weight: 700; /* Definindo peso da fonte */
+    font-size: 20px; /* Definindo tamanho da fonte */
+    cursor: pointer; /* Alterando cursor ao passar o mouse */
+    margin-top: 20px; /* Adicionando margem superior */
+}
+
+/* Estilizando o botão ao passar o mouse */
+.button:hover {
+    background-color: #000000; /* Alterando cor de fundo */
+    border: 1px solid #f9004d; /* Alterando borda */
+    transition: 0.4s; /* Definindo transição suave */
+}
+
+/* Estilizando a seção de projetos */
+.projetos {
+    padding-top: 50px; /* Adicionando preenchimento superior */
+    padding-bottom: 50px; /* Adicionando preenchimento inferior */
+    background-color: #191919; /* Definindo cor de fundo */
+}
+
+/* Estilizando o título da seção de projetos */
+.projetos h2 {
+    color: white; /* Definindo cor do texto */
+    font-size: 40px; /* Definindo tamanho da fonte */
+    text-align: center; /* Centralizando texto */
+}
+
+/* Estilizando o contêiner dos cartões de projetos */
+.card-projetos {
+    display: flex; /* Usando flexbox para alinhar cartões */
+    justify-content: space-around; /* Distribuindo espaço entre cartões */
+    margin-top: 50px; /* Adicionando margem superior */
+}
+
+/* Estilizando os cartões de projetos */
+.card {
+    background-color: #000000; /* Definindo cor de fundo */
+    height: 365px; /* Definindo altura */
+    width: 350px; /* Definindo largura */
+    border-radius: 20px; /* Arredondando bordas */
+    padding: 20px 35px; /* Adicionando preenchimento */
+    text-align: center; /* Centralizando texto */
+}
+
+/* Estilizando a imagem dentro dos cartões */
+.card img {
+    height: 100px; /* Definindo altura da imagem */
+}
+
+/* Estilizando o título dentro dos cartões */
+.card h5 {
+    color: white; /* Definindo cor do texto */
+    font-size: 24px; /* Definindo tamanho da fonte */
+    margin-top: -10px; /* Removendo margem superior */
+}
+
+/* Estilizando o parágrafo dentro dos cartões */
+.card p {
+    color: #e2b9c6; /* Definindo cor do texto */
+    margin-top: 15px; /* Adicionando margem superior */
+    margin-bottom: 15px; /* Adicionando margem inferior */
+}
+
+/* Estilizando o link dentro dos cartões */
+.card a {
+    background-color: #f9004d; /* Definindo cor de fundo */
+    color: white; /* Definindo cor do texto */
+    padding: 5px 20px; /* Adicionando preenchimento */
+    border-radius: 25px; /* Arredondando bordas */
+    cursor: pointer; /* Alterando cursor ao passar o mouse */
+    text-decoration: none; /* Removendo sublinhado */
+    font-weight: 800; /* Definindo peso da fonte */
+}
+
+/* Estilizando o link dentro dos cartões ao passar o mouse */
+.card a:hover {
+    background-color: transparent; /* Tornando fundo transparente */
+    border: 1px solid #f9004d; /* Definindo borda */
+    transition: 0.4s; /* Definindo transição suave */
+}
+
+/* Estilizando o rodapé */
+footer {
+    background-color: #000000; /* Definindo cor de fundo */
+    padding-top: 80px; /* Adicionando preenchimento superior */
+    padding-bottom: 100px; /* Adicionando preenchimento inferior */
+    display: flex; /* Usando flexbox para alinhar elementos filhos */
+    flex-direction: column; /* Definindo direção da flexbox como coluna */
+    align-items: center; /* Centralizando elementos filhos horizontalmente */
+    justify-content: center; /* Centralizando elementos filhos verticalmente */
+}
+
+/* Estilizando o título dentro do rodapé */
+footer h5 {
+    color: white; /* Definindo cor do texto */
+    font-size: 30px; /* Definindo tamanho da fonte */
+}
+
+/* Estilizando o parágrafo dentro do rodapé */
+footer p {
+    color: white; /* Definindo cor do texto */
+    font-size: 18px; /* Definindo tamanho da fonte */
+    margin-top: 5px; /* Adicionando margem superior */
+    margin-bottom: 30px; /* Adicionando margem inferior */
+}
+
+/* Estilizando a seção de redes sociais */
+.social {
+    display: flex; /* Usando flexbox para alinhar elementos filhos */
+    gap: 40px; /* Adicionando espaço entre elementos filhos */
+}
+
+/* Estilizando as imagens dentro da seção de redes sociais */
+.social img {
+    height: 25px; /* Definindo altura da imagem */
+    border-radius: 50%; /* Arredondando bordas */
+    display: flex; /* Usando flexbox para alinhar elementos filhos */
+    align-items: center; /* Centralizando elementos filhos verticalmente */
+    height: 50px; /* Definindo altura da imagem */
+    width: 50px; /* Definindo largura da imagem */
+    justify-content: center; /* Centralizando elementos filhos horizontalmente */
+}
+
+/* Estilizando os links dentro da seção de redes sociais */
+.social a {
+    transition: transform 0.4s ease; /* Transição suave ao aplicar transform */
+    transform: scale(1); /* Estado inicial */
+    text-decoration: none; /* Removendo sublinhado */
+}
+
+/* Estilizando os links dentro da seção de redes sociais ao passar o mouse */
+.social a:hover {
+    transform: scale(1.3); /* Ampliação ao passar o mouse */
+}
+html {
+    scroll-behavior: smooth;
+    /* Habilita a rolagem suave */
+}
