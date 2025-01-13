@@ -13,6 +13,7 @@ h1 {
 }
 
 p {
+    width: 400px;
     color: blue;
     font-size: 30px;
     font-weight: 100;
