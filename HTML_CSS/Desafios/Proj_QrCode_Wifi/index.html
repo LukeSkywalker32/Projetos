@@ -2,25 +2,27 @@
     <title>Qr_Code Wifi</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<form>
-    <h2>Wifi Login</h2>
-    <div class="internal">
-        <img width="164" src="https://api.qrserver.com/v1/create-qr-code/?size=164x164&data=todo">
-
-        <div class="inputs">
-            <label>
-                Nome da Rede:
-                <input class="ssid" placeholder="Wifi network name">
-            </label>
-            <label class="password-container">
-                Senha:
-                <input type="password" class="password" placeholder="Password">
-            </label>
+<div class="container">
+    <form>
+        <h2>Wifi Login</h2>
+        <div class="internal">
+            <img width="164" src="https://api.qrserver.com/v1/create-qr-code/?size=164x164&data=todo">
+    
+            <div class="inputs">
+                <label aria-autocomplete="none">
+                    Nome da Rede:
+                    <input type="text" autocomplete="off" class="ssid" placeholder="Wifi network name">
+                </label>
+                <label class="password-container">
+                    Senha:
+                    <input type="password" class="password" placeholder="Password">
+                </label>
+            </div>
         </div>
-    </div>
-    <p>
-        Aponte a Camera do seu celular para o QrCode para se conectar ao Wifi.
-    </p>
-</form>
-<button type="button">Print Wifi Card</button>
+        <p>
+            Aponte a Camera do seu celular para o QrCode para se conectar ao Wifi.
+        </p>
+    </form>
+    <button type="button">Print Wifi Card</button>
+</div>
 <script src="script.js"></script>
