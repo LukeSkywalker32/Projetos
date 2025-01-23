@@ -8,12 +8,12 @@
 
 
 body {
-    background-color: #8A51FC;
+    background-color: #3B05AC;
 }
 
 .logo {
     display: block;
-    width: 220px;
+    width: 200px;
     margin: 10px auto;
 }
 
@@ -23,7 +23,7 @@ main {
     background-color: #F4F4F4;
     border-radius: 20px;
     margin: 0 auto;
-    padding:44px 24px 23px ;
+    padding:20px 24px 20px ;
 }
 label {
     color:#777777;
@@ -42,7 +42,7 @@ select, input {
 }
 
 button  {
-    background-color: #772FD3;
+    background-color: #3B05AC;
     margin-top: 10px;
     width: 100%;
     height: 48px;
@@ -61,7 +61,7 @@ button:active {
 }
 
 section {
-    border: 1px solid #772FD3;
+    border: 1px solid #3B05AC;
     height: 300px;
     border-radius: 20px;
     margin-top: 20px;
