@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>setTimeout e setInterval</title>
+  </head>
+  <body>
+    <h1>0</h1>
+    <button onclick="start()">Start</button>
+    <button onclick="reset()">Reset</button>
+    <button onclick="stop()">Stop</button>
+
+  </body>
+
+  <script>
+    /*  
+    setTimeout(function()  {
+        alert('Olá mundo!');
+    }, 3000);
+*/
+    /*    
+    let number = 1
+    setInterval(() => { // o setInterval nunca para de rodar, diferente do setTimeout
+        console.log(number ++);        
+    }, 1000);
+*/
+
+    let number = 0;
+    let cron;
+    let h1 = document.querySelector("h1");
+
+    function start() {
+      if (!cron) { // garante que o cronometro nao tenha mais intervalos caso haja mais cliques
+        cron = setInterval(function () {
+          number++;
+          h1.innerHTML = number;
+        }, 1000);
+      }
+    }
+
+    function stop() {
+      clearInterval(cron);
+      cron = null; //
+    }
+    function reset() {
+      stop()
+      number = 0
+      h1.innerHTML = number;
+    }
+  </script>
+</html>

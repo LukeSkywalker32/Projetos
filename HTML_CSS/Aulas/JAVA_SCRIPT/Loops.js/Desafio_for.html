@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desafio_For</title>
+  </head>
+  <body>
+    <input placeholder="Digite o nome do contato" id="nomeBusca" />
+    <button onclick="BuscarContato()">Procurar Contato</button>
+    <p></p>
+  </body>
+  <script>
+    const contacts = [
+      {
+        name: "João",
+        phone: "(18) 3622-9598",
+        email: "joao@email.com",
+      },
+      {
+        name: "Maria",
+        phone: "(21) 98765-4321",
+        email: "maria@email.com",
+      },
+      {
+        name: "Pedro",
+        phone: "(71) 45678-9123",
+        email: "pedro@email.com",
+      },
+    ];
+
+    function BuscarContato() {
+      const p = document.querySelector("p"); //paragrafo
+      const nomeBusca = document.getElementById("nomeBusca").value.toLowerCase(); //input
+
+      for (let i = 0; i < contacts.length; i++) {
+        if (nomeBusca === contacts[i].name.toLowerCase()) {
+          p.innerHTML = `Contato encontrado com sucesso<br><br>Nome: ${contacts[i].name}<br>Tel: ${contacts[i].phone}<br>E-mail: ${contacts[i].email}`;
+          break;
+        } else {
+          p.innerHTML = `Contato não encontrado`;
+        }
+      }
+    }
+  </script>
+</html>
+
+
+<!--<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desafio_For</title>
+</head>
+<body>
+    <input placeholder="Digite o nome do contato" id="nomeBusca" />
+    <button onclick="BuscarContato()">Procurar Contato</button>
+    <div id="resultado"></div>
+</body>
+<script>
+    const contacts = [
+        {
+            name: "João",
+            phone: "(18) 3622-9598",
+            email: "joao@email.com",
+        },
+        {
+            name: "Maria",
+            phone: "(21) 98765-4321",
+            email: "maria@email.com",
+        },
+        {
+            name: "Maria Eduarda", // Outro contato com o mesmo nome
+            phone: "(21) 12345-6789",
+            email: "maria2@email.com",
+        },
+        {
+            name: "Pedro",
+            phone: "(71) 45678-9123",
+            email: "pedro@email.com",
+        },
+    ];
+
+    function BuscarContato() {
+        const resultadoDiv = document.getElementById("resultado"); // Div para exibir os resultados
+        const nomeBusca = document.getElementById("nomeBusca").value.toLowerCase(); // Valor digitado pelo usuário
+        let contatosEncontrados = []; // Array para armazenar os contatos encontrados
+
+        // Limpa o conteúdo anterior da div de resultados
+        resultadoDiv.innerHTML = "";
+
+        // Percorre todos os contatos
+        for (let i = 0; i < contacts.length; i++) {
+            if (nomeBusca === contacts[i].name.toLowerCase()) {
+                contatosEncontrados.push(contacts[i]); // Adiciona o contato ao array de resultados
+            }
+        }
+
+        // Verifica se há contatos encontrados
+        if (contatosEncontrados.length > 0) {
+            // Exibe todos os contatos encontrados
+            contatosEncontrados.forEach(contato => {
+                const contatoElemento = document.createElement("div");
+                contatoElemento.innerHTML = `Contato encontrado com sucesso<br><br>Nome: ${contato.name}<br>Tel: ${contato.phone}<br>E-mail: ${contato.email}<br><br>`;
+                resultadoDiv.appendChild(contatoElemento);
+            });
+        } else {
+            // Exibe mensagem caso nenhum contato seja encontrado
+            resultadoDiv.innerHTML = "<p>Contato não encontrado</p>";
+        }
+    }
+</script>
+</html>
+-->
+
+
+

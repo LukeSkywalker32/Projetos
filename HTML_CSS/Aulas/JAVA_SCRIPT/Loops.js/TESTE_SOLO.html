@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TESTE_SOLO</title>
+  </head>
+  <body>
+    <h1>EXERCICIO COM FOR</h1>
+    <input type="text" placeholder="Digite um nome" class="NomeFild" />
+    <button onclick="BuscaNome()">Pesquisar</button>
+    <p style="white-space: pre-wrap;"></p> <!--uso  para quebra de linha. ele identifica o \n como quebra de linha.-->
+  </body>
+  <script>
+    const contacts = [
+      {
+        name: "João",
+        phone: "(18) 3622-9598",
+        email: "joao@email.com",
+      },
+      {
+        name: "Maria",
+        phone: "(21) 98765-4321",
+        email: "maria@email.com",
+      },
+      {
+        name: "Pedro",
+        phone: "(71) 45678-9123",
+        email: "pedro@email.com",
+      },
+    ];
+
+    function BuscaNome() {
+      let p = document.querySelector("p"); //paragrafo
+      let Nome = document.querySelector(".NomeFild"); //input
+
+      for (let i = 0; i < contacts.length; i++) {
+        if (Nome.value.toLowerCase() === contacts[i].name.toLowerCase()) {
+          p.textContent = `Contato encontrado com sucesso\n\nNome: ${contacts[i].name}\nTel: ${contacts[i].phone}\nE-mail: ${contacts[i].email}`;
+          break
+        } else {
+          p.textContent = "Contato não encontrado!";
+        }
+      }
+
+      console.log("funciona");
+    }
+  </script>
+</html>

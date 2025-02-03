@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Des_While_and_DoWhile</title>
+  </head>
+  <body>
+    <input placeholder="Digite o nome do contato" id="nomeBusca" />
+    <button onclick="BuscarContato()">Procurar Contato</button>
+    <p style="white-space: pre-wrap"></p>
+  </body>
+  <script>
+    const contacts = [
+      {
+        name: "João",
+        phone: "(18) 3622-9598",
+        email: "joao@email.com",
+      },
+      {
+        name: "Maria",
+        phone: "(21) 98765-4321",
+        email: "maria@email.com",
+      },
+      {
+        name: "Pedro",
+        phone: "(71) 45678-9123",
+        email: "pedro@email.com",
+      },
+    ];
+
+    function BuscarContato() {
+      const p = document.querySelector("p"); //paragrafo
+      const nomeBusca = document
+        .getElementById("nomeBusca")
+        .value.toLowerCase(); //input
+      let i = 0;
+      let contatoEncontrado = false;
+
+      //   while (i < contacts.length) {
+      //     const contato = contacts[i]
+      //     if (contato.name.toLowerCase() === nomeBusca) {
+      //         p.textContent = `Contato encontrado com sucesso\n\nNome: ${contato.name}\nTel: ${contato.phone}\nE-mail: ${contato.email}`;
+      //         contatoEncontrado = true
+      //         break
+      //     }
+      //     i++
+      //   }
+      //   if(!contatoEncontrado){
+      //     p.textContent = "Contato não encontrado!";
+      //   }
+
+      do {
+        const contato = contacts[i];
+        if (contato.name.toLowerCase() === nomeBusca) {
+          p.textContent = `Contato encontrado com sucesso\n\nNome: ${contato.name}\nTel: ${contato.phone}\nE-mail: ${contato.email}`;
+          contatoEncontrado = true;
+          break;
+        }
+        i++;
+      } while (i < contacts.length);
+
+      if (!contatoEncontrado) {
+        p.textContent = "Contato não encontrado!";
+      }
+    }
+  </script>
+</html>
