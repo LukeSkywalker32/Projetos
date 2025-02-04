@@ -12,11 +12,22 @@ body {
     background: black;
     width: 100%;
 }
-img {
-    width: 500px;
+img.dados{
+    width: 450px;
     display:block;
     margin: 0 auto;
     padding: 40px;
+}
+img.fundo{
+
+    position: fixed;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.5;
 }
 
 div {
@@ -35,6 +46,7 @@ input {
     width: 100%;
     height: 72px;
     background: #333333;
+    opacity: 0.5;
     border: none;
     border-radius: 10px;
 

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desafio_forEach</title>
+  </head>
+  <body>
+    <input placeholder="Digite o nome do contato" id="nomeBusca" autocomplete="none"/>
+    <button onclick="BuscarContato()">Procurar Contato</button>
+    <p style="white-space: pre-wrap"></p>
+  </body>
+  <script>
+    const contacts = [
+      {
+        name: "João",
+        phone: "(18) 3622-9598",
+        email: "joao@email.com",
+      },
+      {
+        name: "Maria",
+        phone: "(21) 98765-4321",
+        email: "maria@email.com",
+      },
+      {
+        name: "Pedro",
+        phone: "(71) 45678-9123",
+        email: "pedro@email.com",
+      },
+    ];
+
+    function BuscarContato() {
+      const p = document.querySelector("p"); //paragrafo
+      const nomeBusca = document.getElementById("nomeBusca").value.toLowerCase(); //input
+
+      let encontrado = false // varivel de controle pois forEach não aceita o break
+
+      contacts.forEach(nomes => {
+     
+          if (nomes.name.toLowerCase() === nomeBusca) {
+            p.textContent = `Contato encontrado com sucesso\n\nNome: ${nomes.name}\nTel: ${nomes.phone}\nE-mail: ${nomes.email}`;
+            encontrado = true // atribui o valor true para a variavel de controle para sair do forEach quando o contato for encontrado
+        } 
+        if (!encontrado){
+            p.textContent = "Contato não encontrado" //atribui o valor false para a variavel de controle para sair do forEach quando o contato não for encontrado
+        }
+        });
+    }
+  </script>
+</html>
