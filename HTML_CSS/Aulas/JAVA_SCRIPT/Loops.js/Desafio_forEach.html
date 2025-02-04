@@ -6,10 +6,61 @@
     <title>Desafio_forEach</title>
   </head>
   <body>
-    <input placeholder="Digite o nome do contato" id="nomeBusca" autocomplete="none"/>
+    <input
+      placeholder="Digite o nome do contato"
+      id="nomeBusca"
+      autocomplete="none"
+    />
     <button onclick="BuscarContato()">Procurar Contato</button>
     <p style="white-space: pre-wrap"></p>
   </body>
+  <style>
+    body {
+      width: 100%;
+      background-color: black;
+      color: white;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 50%;
+      gap: 10px;
+      flex-direction: column;
+    }
+    input {
+      width: 20em;
+      height: 2em;
+      border-radius: 5px;
+      border: none;
+      padding: 10px;
+      
+    }
+    input:focus {
+      outline: none;
+    }
+    button {
+      font-size: 1.2em;
+      font-weight: 700;
+      width: 10em;
+      height: 2em;
+      border-radius: 5px;
+      border: none;
+      background-color: rgb(136, 135, 135);
+      color: white;
+      cursor: pointer;
+      color: blueviolet
+    }
+    button:hover {
+      background-color: rgb(173, 172, 172);
+    }
+    p {
+      font-size: 1.2em;
+      display: block;
+      align-items: center;
+      margin-top: 1.5em;
+    }
+  </style>
   <script>
     const contacts = [
       {
@@ -31,20 +82,21 @@
 
     function BuscarContato() {
       const p = document.querySelector("p"); //paragrafo
-      const nomeBusca = document.getElementById("nomeBusca").value.toLowerCase(); //input
+      const nomeBusca = document
+        .getElementById("nomeBusca")
+        .value.toLowerCase(); //input
 
-      let encontrado = false // varivel de controle pois forEach não aceita o break
+      let encontrado = false; // varivel de controle pois forEach não aceita o break
 
-      contacts.forEach(nomes => {
-     
-          if (nomes.name.toLowerCase() === nomeBusca) {
-            p.textContent = `Contato encontrado com sucesso\n\nNome: ${nomes.name}\nTel: ${nomes.phone}\nE-mail: ${nomes.email}`;
-            encontrado = true // atribui o valor true para a variavel de controle para sair do forEach quando o contato for encontrado
-        } 
-        if (!encontrado){
-            p.textContent = "Contato não encontrado" //atribui o valor false para a variavel de controle para sair do forEach quando o contato não for encontrado
+      contacts.forEach((nomes) => {
+        if (nomes.name.toLowerCase() === nomeBusca) {
+          p.textContent = `Contato encontrado com sucesso\n\nNome: ${nomes.name}\nTel: ${nomes.phone}\nE-mail: ${nomes.email}`;
+          encontrado = true; // atribui o valor true para a variavel de controle para sair do forEach quando o contato for encontrado
         }
-        });
+        if (!encontrado) {
+          p.textContent = "Contato não encontrado"; //atribui o valor false para a variavel de controle para sair do forEach quando o contato não for encontrado
+        }
+      });
     }
   </script>
 </html>
