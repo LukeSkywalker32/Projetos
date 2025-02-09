@@ -7,9 +7,10 @@ let ComputerScoreNumber = 0;
 
 const playHuman = (humanChoice) => {
   console.log(`Escolha humanda: ${humanChoice}`);
-  console.log(`Escolha Maquina: ${playComputer()}`);
-  
+    
   const machineChoice = playComputer();
+  console.log(`Escolha Maquina: ${machineChoice}`);
+
   playGame(humanChoice, machineChoice);
 };
 
