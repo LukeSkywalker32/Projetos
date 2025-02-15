@@ -32,6 +32,9 @@ form {
     padding: 3rem;
     font: 16px sans-serif;
 }
+h2 {
+    color:#ffffff
+}
 
 /* Define o layout flexível e o espaçamento entre os elementos internos */
 .internal {
@@ -53,15 +56,19 @@ form {
 label {
     display: flex;
     flex-direction: column;
+    color: #ffffff;
 }
 
 /* Estiliza os campos de entrada com cor, fonte, altura, padding e borda */
 input {
-    color: #374151;
+    color: #ffffff;
     font-family: monospace;
     height: 38px;
     padding: 0 16px;
-    border: 1px solid #d1d5db;
+    border: 1px solid #ffffff;
+    border-radius: 6px;
+    margin-top: 5px;
+    background-color: transparent;
 }
 
 /* Estiliza os parágrafos com fonte e cor */
@@ -91,6 +98,27 @@ button:hover {
 
 /* Esconde o botão e o contêiner de senha durante a impressão */
 @media print {
+    video {
+        display: none !important;        
+    }
+    h2 {
+        color: #000000;
+    }
+    
+    form {
+        border: dashed 2px black
+    }
+    input {
+        color: #000000;
+        border: 1px solid #000000;
+    }
+    p {
+        color: #000000;
+    }
+    label {
+        color: #000000;
+    }
+    
     button {
         display: none;
     }

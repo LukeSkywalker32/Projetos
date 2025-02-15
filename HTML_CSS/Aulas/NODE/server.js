@@ -32,5 +32,12 @@ app.post("/usuariosBody", (req, res) => {
   res.send("Resposta do servidor é essa para tipo POST/BODYPARAMS: Hello World!");
 });
 
+app.post("/usuariosCadastro", (req, res) => {
+  console.log(req);
+  res.send(
+    "Resposta do servidor é essa para tipo POST/BODYPARAMS: Hello World!"
+  );
+});
+
 
 app.listen(3000)
