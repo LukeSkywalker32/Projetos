@@ -7,6 +7,7 @@ import { PrismaClient } from "@prisma/client";
 
 const app = express();
 const prisma = new PrismaClient();
+const port = 3000;
 
 app.use(express.json());
 
@@ -71,9 +72,11 @@ app.post("/usuariosCadastroBD", async (req, res) => {
     data: users
   })
   
-  res.status(200).json({ message: `${createUsers.count} usuário(s) deletado(s)!` });
+  res.status(200).json({ message: `${createUsers.count} usuário(s) criado(s)!` });
 });
 
+// ----------------------------------------------------------
+// BUSCANDO USUÁRIOS SALVOS NO BANCO DE DADOS
 app.get("/usuariosCadastroBD", async (req, res) => {
 
     const allUsers = await prisma.user.findMany()
@@ -82,8 +85,10 @@ app.get("/usuariosCadastroBD", async (req, res) => {
 });
 
 //----------------------------------------------------------
+
 // ATUALIZANDO USUÁRIO EXISTENTE E SALVANDO EM UM BANCO DE DADOS
 app.put("/usuariosCadastroBD/:id", async (req, res) => {
+  try {
   const user = await prisma.user.update({
     where: {
       id: req.params.id
@@ -94,8 +99,10 @@ app.put("/usuariosCadastroBD/:id", async (req, res) => {
       age: req.body.age,
     },
   });
-
   res.status(200).json({ user });
+} catch (error) {
+  res.status(404).json({ message: "Usuário não encontrado!" });
+}
 });
 
 //----------------------------------------------------------
@@ -110,6 +117,7 @@ app.put("/usuariosCadastroBD/:id", async (req, res) => {
   res.status(200).json({ message: `${userDel.count} usuário(s) deletado(s)!` });
 });
 */
+
 //----------------------------------------------------------
 // DELETANDO VARIOS USUÁRIOS EXISTENTE
 app.delete("/usuariosCadastroBD", async (req, res) => {
@@ -120,11 +128,20 @@ app.delete("/usuariosCadastroBD", async (req, res) => {
     },
   });
 
-  res.status(200).json({ message: `${delUsers.count} Usuários deletados com sucesso!`});
+  res.status(200).json({ message: `${delUsers.count} Usuário(s) deletado(s) com sucesso!`});
 });
 
 
-app.listen(3000); // escolhe a porta que vai rodar o servidor
+app.listen(port, () => {
+  console.log(`🚀 Servidor rodando na porta ${port} 🚀`);
+}); // escolhe a porta que vai rodar o servidor
+
+
+
+
+
+
+
 
 /*
  req = request
