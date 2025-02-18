@@ -4,6 +4,7 @@
 // NOVO
 import express from "express";
 import { PrismaClient } from "@prisma/client";
+import { validarUsuario} from "./Middlewares.js";
 
 const app = express();
 const prisma = new PrismaClient();
@@ -87,7 +88,7 @@ app.get("/usuariosCadastroBD", async (req, res) => {
 //----------------------------------------------------------
 
 // ATUALIZANDO USUÁRIO EXISTENTE E SALVANDO EM UM BANCO DE DADOS
-app.put("/usuariosCadastroBD/:id", async (req, res) => {
+app.put("/usuariosCadastroBD/:id", validarUsuario, async (req, res) => { //usando Middleware importado de um arquivo separado 
   try {
   const user = await prisma.user.update({
     where: {
@@ -96,7 +97,7 @@ app.put("/usuariosCadastroBD/:id", async (req, res) => {
     data: {
       name: req.body.name,
       email: req.body.email,
-      age: req.body.age,
+      age: Number (req.body.age), // aqui converto a string em número
     },
   });
   res.status(200).json({ user });
