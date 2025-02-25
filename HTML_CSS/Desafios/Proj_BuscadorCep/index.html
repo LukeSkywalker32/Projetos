@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Buscador de ENDEREÇO</title>
+  </head>
+  <body>
+    <!-- <img src="img/correios.jpg" alt="" /> -->
+
+    <div class="container">
+      <div class="box">
+        <h1>Buscador de ENDEREÇO</h1>
+        <p>Digite o CEP desejado:</p>
+        <input type="text" id="cep" placeholder="Digite o CEP" />
+      </div>
+
+      <button type="submit" id="buscar">Buscar</button>
+
+      <div class="result">
+        <div class="box">
+          <h2>Resultado:</h2>
+          <p>CEP: <span id="cepResult"></span></p>
+          <p>Logradouro: <span id="logradouroResult"></span></p>
+          <p>Bairro: <span id="bairroResult"></span></p>
+          <p>Cidade: <span id="cidadeResult"></span></p>
+          <p>Estado: <span id="stateResult"></span></p>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

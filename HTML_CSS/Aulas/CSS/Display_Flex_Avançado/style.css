@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  margin: 10px;
+  border: 1px solid black;
+  display: flex;
+  height: 400px;
+
+  display: flex;
+  align-content: space-between;
+  align-items: center;
+}
+
+.bloco {
+  /* width: 400px; */
+  height: 100px;
+  background: #cdd728;
+  border: 5px solid #9758a6;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px;
+  flex-grow: 1;
+  /* flex-basis: 100px; */
+}
+.bloco:nth-child(1) {
+  align-self: flex-start;
+}
+.bloco:nth-child(3) {
+  align-self: flex-start;
+}
+.bloco:nth-child(5) {
+  align-self: flex-end;
+}
+

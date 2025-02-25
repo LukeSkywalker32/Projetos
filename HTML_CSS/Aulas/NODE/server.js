@@ -4,7 +4,7 @@
 // NOVO
 import express from "express";
 import { PrismaClient } from "@prisma/client";
-import { validarUsuario} from "./Middlewares.js";
+import { validarUsuario } from "./Middlewares.js";
 
 const app = express();
 const prisma = new PrismaClient();
@@ -67,20 +67,21 @@ app.get("/usuariosCadastro", (req, res) => {
 //----------------------------------------------------------
 // CRIANDO VARIOS USUÁRIOS E SALVANDO EM UM BANCO DE DADOS
 app.post("/usuariosCadastroBD", async (req, res) => {
-  const {users} = req.body
+  const { users } = req.body;
 
-  const createUsers = await prisma.user.createMany ({
-    data: users
-  })
-  
-  res.status(200).json({ message: `${createUsers.count} usuário(s) criado(s)!` });
+  const createUsers = await prisma.user.createMany({
+    data: users,
+  });
+
+  res
+    .status(200)
+    .json({ message: `${createUsers.count} usuário(s) criado(s)!` });
 });
 
 // ----------------------------------------------------------
 // BUSCANDO USUÁRIOS SALVOS NO BANCO DE DADOS
 app.get("/usuariosCadastroBD", async (req, res) => {
-
-    const allUsers = await prisma.user.findMany()
+  const allUsers = await prisma.user.findMany();
 
   res.status(200).json(allUsers);
 });
@@ -88,22 +89,23 @@ app.get("/usuariosCadastroBD", async (req, res) => {
 //----------------------------------------------------------
 
 // ATUALIZANDO USUÁRIO EXISTENTE E SALVANDO EM UM BANCO DE DADOS
-app.put("/usuariosCadastroBD/:id", validarUsuario, async (req, res) => { //usando Middleware importado de um arquivo separado 
+app.put("/usuariosCadastroBD/:id", validarUsuario, async (req, res) => {
+  //usando Middleware importado de um arquivo separado
   try {
-  const user = await prisma.user.update({
-    where: {
-      id: req.params.id
-    },
-    data: {
-      name: req.body.name,
-      email: req.body.email,
-      age: Number (req.body.age), // aqui converto a string em número
-    },
-  });
-  res.status(200).json({ user });
-} catch (error) {
-  res.status(404).json({ message: "Usuário não encontrado!" });
-}
+    const user = await prisma.user.update({
+      where: {
+        id: req.params.id,
+      },
+      data: {
+        name: req.body.name,
+        email: req.body.email,
+        age: Number(req.body.age), // aqui converto a string em número
+      },
+    });
+    res.status(200).json({ user });
+  } catch (error) {
+    res.status(404).json({ error:error.message });
+  }
 });
 
 //----------------------------------------------------------
@@ -125,24 +127,18 @@ app.delete("/usuariosCadastroBD", async (req, res) => {
   const { ids } = req.body;
   const delUsers = await prisma.user.deleteMany({
     where: {
-      id: {in: ids}
+      id: { in: ids },
     },
   });
 
-  res.status(200).json({ message: `${delUsers.count} Usuário(s) deletado(s) com sucesso!`});
+  res
+    .status(200)
+    .json({ message: `${delUsers.count} Usuário(s) deletado(s) com sucesso!` });
 });
-
 
 app.listen(port, () => {
   console.log(`🚀 Servidor rodando na porta ${port} 🚀`);
 }); // escolhe a porta que vai rodar o servidor
-
-
-
-
-
-
-
 
 /*
  req = request
