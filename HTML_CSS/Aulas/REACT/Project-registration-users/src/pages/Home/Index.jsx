@@ -10,14 +10,20 @@ import {
 } from "./styles";
 import ImgUsers from "../../assets/users.png";
 import { useRef } from "react";
+import api from "../../services/api.js";
 
 function Home() {
   const inputName = useRef();
   const inputAge = useRef();
   const inputEmail = useRef();
 
-  function submitRegister() {
-    console.log(inputName.current.value);
+  async function submitRegister() {
+    const data = await api.post("/usuariosCadastroBD", {
+      name: inputName.current.value,
+      age: parseInt(inputAge.current.value),
+      email: inputEmail.current.value,
+    });
+    console.log(data);
   }
 
   return (

@@ -5,16 +5,19 @@
 import express from "express";
 import { PrismaClient } from "@prisma/client";
 import { validarUsuario } from "./Middlewares.js";
+import cors from "cors";
 
 const app = express();
 const prisma = new PrismaClient();
 const port = 3000;
 
 app.use(express.json());
+app.use(cors())
 
 //TIPOS DE ROTAS
 // GET = pegar
-app.get("/usuarios", (req, res) => {
+
+/*app.get("/usuarios", (req, res) => {
   console.log(req);
   res.send("Resposta do servidor é essa para tipo GET: Hello World!");
 });
@@ -47,26 +50,27 @@ app.post("/usuariosCadastro", (req, res) => {
 app.get("/usuariosCadastro", (req, res) => {
   res.status(200).json(users);
 });
+*/
 
 //----------------------------------------------------------
 // CRIANDO UM USUÁRIO MAS SALVANDO EM UM BANCO DE DADOS
-/*app.post("/usuariosCadastroBD", async (req, res) => {
+app.post("/usuariosCadastroBD", async (req, res) => {
 
   const user = await prisma.user.create ({
     data: {
       name:  req.body.name,
       email: req.body.email,
-      age:   req.body.age
+      age:   Number(req.body.age)
     }
   })
   
   res.status(201).json({user});
 });
-*/
+
 
 //----------------------------------------------------------
 // CRIANDO VARIOS USUÁRIOS E SALVANDO EM UM BANCO DE DADOS
-app.post("/usuariosCadastroBD", async (req, res) => {
+/*app.post("/usuariosCadastroBD", async (req, res) => {
   const { users } = req.body;
 
   const createUsers = await prisma.user.createMany({
@@ -77,7 +81,7 @@ app.post("/usuariosCadastroBD", async (req, res) => {
     .status(200)
     .json({ message: `${createUsers.count} usuário(s) criado(s)!` });
 });
-
+*/
 // ----------------------------------------------------------
 // BUSCANDO USUÁRIOS SALVOS NO BANCO DE DADOS
 app.get("/usuariosCadastroBD", async (req, res) => {
