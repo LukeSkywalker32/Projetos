@@ -4,13 +4,14 @@ import {
   Form,
   ContainerInputs,
   Input,
-  Button,
-  TopBackgound,
   InputLabel,
 } from "./styles";
-import ImgUsers from "../../assets/users.png";
+
+
 import { useRef } from "react";
 import api from "../../services/api.js";
+import Button from "../../components/Button";
+import TopBackground from "../../components/TopBackground";
 
 function Home() {
   const inputName = useRef();
@@ -27,9 +28,7 @@ function Home() {
 
   return (
     <Container>
-      <TopBackgound>
-        <img src={ImgUsers} alt="Logo" />
-      </TopBackgound>
+      <TopBackground />
 
       <Form>
         <Title>Cadastrar Usuários</Title>
@@ -69,10 +68,13 @@ function Home() {
           ></Input>
         </div>
 
-        <Button type="button" onClick={submitRegister}>
+        <Button type="button" onClick={submitRegister} theme="primary">
           Cadastrar Usuários
         </Button>
       </Form>
+      <Button type="button">
+        Visualizar Usuários
+      </Button>
     </Container>
   );
 }
