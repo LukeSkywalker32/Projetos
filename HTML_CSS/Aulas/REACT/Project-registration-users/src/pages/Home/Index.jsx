@@ -23,7 +23,6 @@ function Home() {
       age: parseInt(inputAge.current.value),
       email: inputEmail.current.value,
     });
-    console.log(data);
   }
 
   return (
@@ -52,7 +51,7 @@ function Home() {
               Idade<span> *</span>
             </InputLabel>
             <Input
-              type="numer"
+              type="number"
               placeholder="Idade do Usuário"
               ref={inputAge}
             ></Input>

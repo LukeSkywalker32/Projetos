@@ -103,7 +103,7 @@ app.put("/usuariosCadastroBD/:id", validarUsuario, async (req, res) => {
       data: {
         name: req.body.name,
         email: req.body.email,
-        age: Number(req.body.age), // aqui converto a string em número
+        age: Number(req.body.age), // aqui converto a string em número.
       },
     });
     res.status(200).json({ user });
