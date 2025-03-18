@@ -12,7 +12,7 @@ const prisma = new PrismaClient();
 const port = 3000;
 
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 
 //TIPOS DE ROTAS
 // GET = pegar
@@ -55,18 +55,16 @@ app.get("/usuariosCadastro", (req, res) => {
 //----------------------------------------------------------
 // CRIANDO UM USUÁRIO MAS SALVANDO EM UM BANCO DE DADOS
 app.post("/usuariosCadastroBD", async (req, res) => {
-
-  const user = await prisma.user.create ({
+  const user = await prisma.user.create({
     data: {
-      name:  req.body.name,
+      name: req.body.name,
       email: req.body.email,
-      age:   Number(req.body.age)
-    }
-  })
-  
-  res.status(201).json({user});
-});
+      age: Number(req.body.age),
+    },
+  });
 
+  res.status(201).json({ user });
+});
 
 //----------------------------------------------------------
 // CRIANDO VARIOS USUÁRIOS E SALVANDO EM UM BANCO DE DADOS
@@ -108,25 +106,25 @@ app.put("/usuariosCadastroBD/:id", validarUsuario, async (req, res) => {
     });
     res.status(200).json({ user });
   } catch (error) {
-    res.status(404).json({ error:error.message });
+    res.status(404).json({ error: error.message });
   }
 });
 
 //----------------------------------------------------------
 // DELETANDO UM USUÁRIO EXISTENTE E SALVANDO EM UM BANCO DE DADOS
-/*app.delete("/usuariosCadastroBD/:id", async (req, res) => {
-  const userDel = await prisma.user.delete({
+app.delete("/usuariosCadastroBD/:id", async (req, res) => {
+  await prisma.user.delete({
     where: {
       id: req.params.id,
     },
   });
 
-  res.status(200).json({ message: `${userDel.count} usuário(s) deletado(s)!` });
+  res.status(200).json({ message: `usuário(s) deletado(s)!` });
 });
-*/
 
 //----------------------------------------------------------
 // DELETANDO VARIOS USUÁRIOS EXISTENTE
+/*
 app.delete("/usuariosCadastroBD", async (req, res) => {
   const { ids } = req.body;
   const delUsers = await prisma.user.deleteMany({
@@ -139,10 +137,12 @@ app.delete("/usuariosCadastroBD", async (req, res) => {
     .status(200)
     .json({ message: `${delUsers.count} Usuário(s) deletado(s) com sucesso!` });
 });
-
+*/
 app.listen(port, () => {
   console.log(`🚀 Servidor rodando na porta ${port} 🚀`);
 }); // escolhe a porta que vai rodar o servidor
+
+//----------------------------------------------------------
 
 /*
  req = request
