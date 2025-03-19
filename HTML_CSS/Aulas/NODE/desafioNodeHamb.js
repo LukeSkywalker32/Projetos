@@ -32,19 +32,31 @@ app.post("/order", (req, res) => {
   orders.push(newOrder); // aqui eu add o pedido ao array
   return res.status(201).json(orders);
 });
-// ---------------------------------------
+
+
+// --------------------------------------------------------------------------
+
+
 //Rota GET - listo os pedidos criados
 app.get("/order", (req, res) => {
   return res.status(200).json(orders);
 });
-// ---------------------------------------
+
+
+// --------------------------------------------------------------------------
+
+
 // Rota GET /order/:id - Buscar um pedido específico pelo ID
 app.get("/order/:id", validateId(orders), (req, res) => {
   const { id } = req.params;
   const order = orders.find((item) => item.id === id);
   return res.status(200).json(order);
 });
-// ---------------------------------------
+
+
+// ---------------------------------------------------------------------------
+
+
 // Rota PUT /order/:id - Atualizar um pedido existente pelo ID
 app.put("/order/:id", validateId(orders), (req, res) => {
   const { id } = req.params;
@@ -64,7 +76,11 @@ app.put("/order/:id", validateId(orders), (req, res) => {
            order: orders[orderIndex],
     });
 });
-// ---------------------------------------
+
+
+// ---------------------------------------------------------------------------
+
+
 // Rota DELETE /order/:id - Excluir um pedido existente pelo ID
 app.delete("/order/:id", validateId(orders), (req, res) => {
   const { id } = req.params;
@@ -72,7 +88,11 @@ app.delete("/order/:id", validateId(orders), (req, res) => {
   orders = orders.filter((item) => item.id !== id);
   return res.status(201).json({ message: "Pedido excluído com sucesso!" });
 });
-// ---------------------------------------
+
+
+// ---------------------------------------------------------------------------
+
+
 // Rota PATCH /order/:id - Alterar o status do pedido para "Pronto"
 app.patch("/order/:id", validateId(orders), (req, res) => {
   const { id } = req.params;

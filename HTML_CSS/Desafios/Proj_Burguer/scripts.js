@@ -4,9 +4,6 @@ const buttonDiscount = document.querySelector(".discountAll");
 const buttonSum = document.querySelector(".sumFull");
 const buttonFilter = document.querySelector(".filterAll");
 
-
-
-
 function showAll(newArrayProducts) {
   let myLi = "";
 
@@ -26,6 +23,8 @@ function showAll(newArrayProducts) {
   list.innerHTML = myLi;
 }
 
+
+
 function showDiscount() {
   const newPrice = menuOptions.map((product) => ({
     ...product,
@@ -34,6 +33,9 @@ function showDiscount() {
 
   showAll(newPrice);
 }
+
+
+
 function sumFull() {
   const sum = menuOptions.reduce((acc, curr) => acc + curr.price, 0);
   const sumDiscount = sum * 0.9;
@@ -53,12 +55,17 @@ function sumFull() {
                             style: "currency",
                             currency: "BRL",
                           }
-                        )}</span>
-                    </li>`;
+                        )}
+                    </li></span>
+                  `;
 }
 
+
+
 function filterAll() {
-  const productsFilter = menuOptions.filter((product) => product.vegan === true);
+  const productsFilter = menuOptions.filter(
+    (product) => product.vegan === true
+  );
 
   showAll(productsFilter);
 }

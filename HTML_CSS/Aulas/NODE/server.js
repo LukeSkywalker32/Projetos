@@ -52,7 +52,10 @@ app.get("/usuariosCadastro", (req, res) => {
 });
 */
 
+
 //----------------------------------------------------------
+
+
 // CRIANDO UM USUÁRIO MAS SALVANDO EM UM BANCO DE DADOS
 app.post("/usuariosCadastroBD", async (req, res) => {
   const user = await prisma.user.create({
@@ -66,7 +69,10 @@ app.post("/usuariosCadastroBD", async (req, res) => {
   res.status(201).json({ user });
 });
 
+
 //----------------------------------------------------------
+
+
 // CRIANDO VARIOS USUÁRIOS E SALVANDO EM UM BANCO DE DADOS
 /*app.post("/usuariosCadastroBD", async (req, res) => {
   const { users } = req.body;
@@ -80,7 +86,11 @@ app.post("/usuariosCadastroBD", async (req, res) => {
     .json({ message: `${createUsers.count} usuário(s) criado(s)!` });
 });
 */
+
+
 // ----------------------------------------------------------
+
+
 // BUSCANDO USUÁRIOS SALVOS NO BANCO DE DADOS
 app.get("/usuariosCadastroBD", async (req, res) => {
   const allUsers = await prisma.user.findMany();
@@ -88,7 +98,9 @@ app.get("/usuariosCadastroBD", async (req, res) => {
   res.status(200).json(allUsers);
 });
 
+
 //----------------------------------------------------------
+
 
 // ATUALIZANDO USUÁRIO EXISTENTE E SALVANDO EM UM BANCO DE DADOS
 app.put("/usuariosCadastroBD/:id", validarUsuario, async (req, res) => {
@@ -110,7 +122,10 @@ app.put("/usuariosCadastroBD/:id", validarUsuario, async (req, res) => {
   }
 });
 
+
 //----------------------------------------------------------
+
+
 // DELETANDO UM USUÁRIO EXISTENTE E SALVANDO EM UM BANCO DE DADOS
 app.delete("/usuariosCadastroBD/:id", async (req, res) => {
   await prisma.user.delete({
@@ -122,7 +137,10 @@ app.delete("/usuariosCadastroBD/:id", async (req, res) => {
   res.status(200).json({ message: `usuário(s) deletado(s)!` });
 });
 
+
 //----------------------------------------------------------
+
+
 // DELETANDO VARIOS USUÁRIOS EXISTENTE
 /*
 app.delete("/usuariosCadastroBD", async (req, res) => {
@@ -138,11 +156,20 @@ app.delete("/usuariosCadastroBD", async (req, res) => {
     .json({ message: `${delUsers.count} Usuário(s) deletado(s) com sucesso!` });
 });
 */
-app.listen(port, () => {
-  console.log(`🚀 Servidor rodando na porta ${port} 🚀`);
-}); // escolhe a porta que vai rodar o servidor
+
 
 //----------------------------------------------------------
+
+
+// escolhe a porta que vai rodar o servidor
+app.listen(port, () => {
+  console.log(`🚀 Servidor rodando na porta ${port} 🚀`);
+}); 
+
+
+//----------------------------------------------------------
+
+
 
 /*
  req = request
