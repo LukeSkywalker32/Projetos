@@ -7,7 +7,8 @@ const formatCep = (cep) => {
 };
 
 const apiCep = async () => {
-  const cep = input.value.trim(); // Pega o CEP digitado e remove espaços extras
+  let cep = input.value.trim(); // Pega o CEP digitado e remove espaços extras
+  cep = cep.replace("-", ""); 
 
   if (cep.length !== 8 || isNaN(cep)) {
     alert("Por favor, digite um CEP válido com 8 dígitos.");
