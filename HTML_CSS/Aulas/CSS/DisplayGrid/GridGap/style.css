@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  grid-row-gap: 10px;
+  grid-column-gap: 30px;
+  grid-gap: 5px 10px; /* pode ser usar porcentagem também */
+}
+
+.space {
+  color: #ffffff;
+  font-size: 30px;
+}
+
+.one {
+  background: #007bff;
+}
+
+.two {
+  background: #dc143c;
+}
+
+.three {
+  background: #50c878;
+}
+
+.four {
+  background: #ffd700;
+}
+
+.five {
+  background: #da70d6;
+}
+
+.six {
+  background: #ff7f50;
+}
+
+.seven {
+  background: #00ced1;
+}
+
+.eight {
+  background: #ff69b4;
+}
+
+.nine {
+  background: #2f4f4f;
+}
