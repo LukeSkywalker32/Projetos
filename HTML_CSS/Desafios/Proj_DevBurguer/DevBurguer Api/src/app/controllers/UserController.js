@@ -19,7 +19,7 @@ class UserController {
         .matches(/^[A-Za-z\s]+$/, "O nome deve conter apenas letras")
         .required(),
       email: Yup.string().email("E-mail deve ser um e-mail válido").required(),
-      password_hash: Yup.string().min(6, "Minimo de 6 caracteres").required(),
+      password: Yup.string().min(6, "Minimo de 6 caracteres").required(),
       admin: Yup.boolean(),
     });
 
@@ -29,13 +29,22 @@ class UserController {
       return res.status(400).json({ error: err.errors });
     }
 
-    const { name, email, password_hash, admin } = req.body;
+    const { name, email, password, admin } = req.body;
+
+    const userExists = await User.findOne({
+      where: {
+        email,
+      },
+    });
+    if (userExists) {
+      return res.status(400).json({ error: "Usuário já existe" });
+    }
 
     const user = await User.create({
       id: v4(),
       name,
       email,
-      password_hash,
+      password,
       admin,
     });
     return res.status(201).json({
