@@ -1,5 +1,6 @@
 import * as Yup from "yup";
 import Category from "../models/Category.js";
+import User from "../models/User.js";
 
 class CategoryController {
   async store(req, res) {
@@ -11,6 +12,11 @@ class CategoryController {
       schema.validateSync(req.body, { abortEarly: false });
     } catch (err) {
       return res.status(400).json({ error: err.errors });
+    }
+
+    const { admin: isAdmin } = await User.findByPk(req.userId);
+    if (!isAdmin) {
+      return res.status(401).json({ error: "Acesso não autorizado" });
     }
 
     const { name } = req.body;
