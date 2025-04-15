@@ -92,6 +92,7 @@ export const InputContainer = styled.div`
     color: #cf3057;
     font-size: 12px;
     height: 14px;
+
   }
 `
 
