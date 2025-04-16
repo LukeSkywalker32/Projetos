@@ -34,14 +34,27 @@
       let p = document.querySelector("p"); //paragrafo
       let Nome = document.querySelector(".NomeFild"); //input
 
-      for (let i = 0; i < contacts.length; i++) {
-        if (Nome.value.toLowerCase() === contacts[i].name.toLowerCase()) {
-          p.textContent = `Contato encontrado com sucesso\n\nNome: ${contacts[i].name}\nTel: ${contacts[i].phone}\nE-mail: ${contacts[i].email}`;
-          break
+      let i = 0;
+      while (i < contacts.length) {
+        if (Nome.value.toLowerCase() === contacts[i].name.toLowerCase()) { 
+          p.textContent = `Contato encontrado com sucesso\n\nNome: ${contacts[i].name}\nTel: ${contacts[i].phone}\nE-mail: ${contacts[i].email}`; 
+          break;
         } else {
           p.textContent = "Contato não encontrado!";
         }
-      }
+        i++;
+      }        
+                 
+      
+      
+      // for (let i = 0; i < contacts.length; i++) {
+      //   if (Nome.value.toLowerCase() === contacts[i].name.toLowerCase()) {
+      //     p.textContent = `Contato encontrado com sucesso\n\nNome: ${contacts[i].name}\nTel: ${contacts[i].phone}\nE-mail: ${contacts[i].email}`;
+      //     break
+      //   } else {
+      //     p.textContent = "Contato não encontrado!";
+      //   }
+      // }
 
       console.log("funciona");
     }
