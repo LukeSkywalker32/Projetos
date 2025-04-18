@@ -1,7 +1,9 @@
 import Logo from "../../assets/SectionOne/logo.svg";
 import * as S from "./styles";
 import { Button } from "../../components/Button";
+import { toast } from "react-toastify";
 
+import { api } from "../../services/api.js";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -27,7 +29,21 @@ export function Login() {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    const response = await toast.promise(
+      api.post("/session", {
+        email: data.email,
+        password: data.password,
+      }),
+      {
+        pending: "Aguarde...",
+        success: "Login realizado com sucesso!",
+        error: "Usuário ou senha inválidos",
+      }
+    );
+
+    console.log(response);
+  };
 
   return (
     <S.Container>
@@ -55,6 +71,7 @@ export function Login() {
             <label htmlFor="password">Senha</label>
             <input
               id="password"
+              type="password"
               placeholder="Digite sua Senha"
               {...register("password")}
             />

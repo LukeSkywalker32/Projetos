@@ -56,5 +56,16 @@ class UserController {
     });
     //res.status(200).json({ message: "Hello World" });
   }
+
+  async index(req, res) {
+    try {
+      const users = await User.findAll({
+        atributes: ["id", "name", "email", "admin"],
+      });
+      return res.status(200).json(users);
+    } catch (err) {
+      return res.status(500).json({ error:"Erro ao buscar usuários" });
+    }
+  }
 }
 export default new UserController();

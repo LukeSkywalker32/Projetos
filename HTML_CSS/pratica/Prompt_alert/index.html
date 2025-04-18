@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dados com JS</title>
+  </head>
+  <style>
+    h1 {
+      color: #0000ff;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 3em;
+    }
+    button {
+      height: 80px;
+      width: 200px;
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      color: #fff;
+      font-size: 1.5em;
+
+      border: none;
+      border-radius: 10px;
+      background-color: #6ac4a2;
+      cursor: pointer;
+      box-shadow: 3px 6px 8px 3px rgba(0, 0, 0, 0.2);
+    }
+    button:hover {
+      background-color: #5ca186;
+      border: dashed 2px #000;
+    }
+  </style>
+  <body>
+    <h1>Trabalhando com dados v1.0</h1>
+    <button onclick="inicio()">Clique para começar</button>
+  </body>
+  <script>
+    function inicio() {
+      let nome = prompt("Qual o seu nome?");
+      alert("Olá " + nome + ", seja bem-vindo(a) ao nosso site!");
+    }
+  </script>
+</html>

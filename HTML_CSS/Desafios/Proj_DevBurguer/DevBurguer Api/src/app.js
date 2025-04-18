@@ -1,5 +1,6 @@
 import express from "express";
 import routes from "./routes.js";
+import cors from "cors";
 
 import { fileURLToPath } from "url";
 import { dirname } from "node:path";
@@ -14,6 +15,7 @@ class App {
   constructor() {
     this.app = express();
 
+    this.app.use(cors())
     this.middlewares();
     this.routes();
   }

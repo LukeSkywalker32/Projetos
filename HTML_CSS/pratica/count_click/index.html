@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contador de Cliques</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: cursive
+    }
+
+    h1 {
+      color: #0000ff;
+      font-size: 3em;
+      margin: 20px;
+    }
+    .buttons {
+      display: flex;
+    }
+    button {
+      height: 80px;
+      width: 200px;
+
+      font-weight: bold;
+      color: #fff;
+      font-size: 1.5em;
+
+      border: none;
+      border-radius: 10px;
+      background-color: #6ac4a2;
+      cursor: pointer;
+      box-shadow: 3px 6px 8px 3px rgba(0, 0, 0, 0.2);
+      margin: 20px;
+    }
+    button:hover {
+      background-color: #5ca186;
+      border: dashed 2px white;
+    }
+    p {
+      font-size: 1.3em;
+      margin: 20px;
+
+      span {
+        font-weight: bolder;
+      }
+    }
+  </style>
+  <body>
+    <h1>Contador de Cliques</h1>
+    <div class="buttons">
+      <button onclick="start()">Iniciar contador</button>
+      <button onclick="zerar()">Encerrar Contador</button>
+    </div>
+    <p>O contador está com <span>0</span> cliques.</p>
+  </body>
+  <script>
+    let contador = 0;
+    let clique = document.querySelector("span");
+
+    function start() {
+      contador++;
+      clique.innerHTML = contador;
+    }
+    function zerar() {
+      contador = 0;
+      clique.innerHTML = contador;
+    }
+  </script>
+</html>

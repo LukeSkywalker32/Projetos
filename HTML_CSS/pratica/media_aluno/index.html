@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Números com JS</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h1 {
+      color: #0000ff;
+      font-size: 3em;
+      margin: 20px;
+    }
+    button {
+      height: 80px;
+      width: 200px;
+
+      font-weight: bold;
+      color: #fff;
+      font-size: 1.5em;
+
+      border: none;
+      border-radius: 10px;
+      background-color: #6ac4a2;
+      cursor: pointer;
+      box-shadow: 3px 6px 8px 3px rgba(0, 0, 0, 0.2);
+      margin: 20px;
+    }
+    button:hover {
+      background-color: #5ca186;
+      border: dashed 2px white ;
+    }
+    p {
+      font-size: 1.3em;
+      margin: 20px;
+    }
+  </style>
+  <body>
+    <h1>Média do aluno v1.0</h1>
+    <button onclick="inicio()">Calcular média</button>
+    <div id="hidden">
+      <p>O resultado vai aparecer aqui...</p>
+    </div>
+  </body>
+  <script>
+    //   alert("Olá, seja bem-vindo(a) ao meu site!")
+    function inicio() {
+      let hidden = document.getElementById("hidden");
+      let nome = prompt("Digite seu nome");
+      let nota1 = parseFloat(prompt(`Digite a primeira nota do ${nome}`));
+      let nota2 = parseFloat(prompt(`Digite a segunda nota do ${nome}`));
+      let media = (nota1 + nota2) / 2;
+
+      hidden.innerHTML = `
+        <p>
+            Calculando a média final de <mark>${nome}</mark><br> 
+            As notas obtidas foram <mark>${nota1}</mark> e <mark>${nota2}</mark><br>
+            A média final será <mark>${media}</mark><br>
+        </p>
+        `;
+    }
+  </script>
+</html>
