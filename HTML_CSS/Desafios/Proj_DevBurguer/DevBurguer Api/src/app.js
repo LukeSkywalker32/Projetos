@@ -2,7 +2,7 @@ import express from "express";
 import routes from "./routes.js";
 import cors from "cors";
 
-import { fileURLToPath } from "url";
+import { fileURLToPath } from "node:url";
 import { dirname } from "node:path";
 import path from "node:path";
 

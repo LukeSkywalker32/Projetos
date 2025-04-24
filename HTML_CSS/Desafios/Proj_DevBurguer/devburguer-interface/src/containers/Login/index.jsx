@@ -1,4 +1,4 @@
-import Logo from "../../assets/SectionOne/logo.svg";
+import BackLogo from "../../components/AlterLogo";
 import * as S from "./styles";
 import { Button } from "../../components/Button";
 import { toast } from "react-toastify";
@@ -7,8 +7,10 @@ import { api } from "../../services/api.js";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useNavigate } from "react-router-dom";
 
 export function Login() {
+  const navigate = useNavigate();
   const schema = yup
     .object({
       email: yup
@@ -37,18 +39,28 @@ export function Login() {
       }),
       {
         pending: "Aguarde...",
-        success: "Login realizado com sucesso!",
+        success: {
+          render() {
+            setTimeout(() => {
+              navigate("/");
+            }, 2000);
+            return "Seja Bem-Vindo💕";
+          },
+        },
         error: "Usuário ou senha inválidos",
       }
     );
 
-    console.log(response);
+    const token = response?.data?.token;if (token) {
+      localStorage.setItem('token', token)
+    }
+
   };
 
   return (
     <S.Container>
       <S.LeftContainer>
-        <img src={Logo} alt="Logo DevBurguer" />
+        <BackLogo />
       </S.LeftContainer>
       <S.RightContainer>
         <S.Title>
@@ -81,7 +93,7 @@ export function Login() {
           <Button type="submit">ENTRAR</Button>
         </S.Form>
         <p>
-          Não possui conta? <a href="##">Clique aqui.</a>
+          Não possui conta? <S.Link to="/cadastro">Clique aqui.</S.Link>
         </p>
       </S.RightContainer>
     </S.Container>

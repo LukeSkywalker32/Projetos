@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import BackgroundLogo from '../../assets/SectionOne/background_logo.svg'
 import BackgroundInput from '../../assets/SectionOne/background_input.svg'
 
+import { Link as ReactLink } from 'react-router-dom'
+
 export const Container = styled.div`
   display: flex;
   height: 100vh;
@@ -21,9 +23,7 @@ export const LeftContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  img {
-    width: 80%;
-  }
+
 `
 
 export const RightContainer = styled.div`
@@ -96,4 +96,7 @@ export const InputContainer = styled.div`
   }
 `
 
-export const Link = styled.a``
+export const Link = styled(ReactLink)`
+  text-decoration: none;
+  color: #fff;
+`
