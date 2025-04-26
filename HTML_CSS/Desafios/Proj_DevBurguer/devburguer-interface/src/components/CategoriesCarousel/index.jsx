@@ -6,13 +6,13 @@ import "react-multi-carousel/lib/styles.css";
 import { Container, ContainerItems, Title } from "./styles.js";
 
 export function CategoriesCarousel() {
-  const [categories, setcategories] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     async function loadCategories() {
       const { data } = await api.get("/Categories");
 
-      setcategories(data.categories);
+      setCategories(data.categories);
       // console.log(data);
     }
     loadCategories();
