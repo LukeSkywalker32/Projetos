@@ -6,6 +6,7 @@ export const Container = styled.div`
 
     }
     padding-left: 40px;
+    margin-top: 50px;
 
 
 
@@ -13,7 +14,7 @@ export const Container = styled.div`
 
 export const Title = styled.h2`
     font-size: 30px;
-    color: #9758a6;
+    color: #61a120;
     font-weight: 700;
     padding-bottom: 12px;
     position: relative;
@@ -26,7 +27,7 @@ export const Title = styled.h2`
         bottom: 0;
         width: 56px;
         height: 4px;
-        background-color: #9758a6;        
+        background-color: #61a120;        
         left: 50%;
         transform: translateX(-50%)
 
@@ -45,6 +46,7 @@ export const ContainerItems = styled.div`
     align-items: center;
     padding: 20px 10px;
     width: 100%;
+    margin-bottom: 50px;
 
     p {
         color: #fff;

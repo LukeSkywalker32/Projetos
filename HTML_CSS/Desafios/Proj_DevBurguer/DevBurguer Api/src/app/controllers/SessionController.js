@@ -45,8 +45,8 @@ class SessionController {
 		//return res.json({message:"Login realizado com sucesso"})
 		return res.status(201).json({
 			id: user.id,
+			email,
 			name: user.name,
-			email: user.email,
 			admin: user.admin,
 			token: jwt.sign({ id: user.id, name: user.name }, authConfig.secret, {
 				expiresIn: authConfig.expiresIn,

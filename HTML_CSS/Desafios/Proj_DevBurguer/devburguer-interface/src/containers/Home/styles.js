@@ -22,7 +22,7 @@ export const Banner = styled.div`
 
 export const Container = styled.section`
     background: url('${Background}') lightgray 50% / cover no-repeat;
-    height: 500px;
+    height: 100%;
 
 `
 

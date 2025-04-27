@@ -93,7 +93,7 @@ class CategoryController {
 
 	async index(req, res) {
 		const categories = await Category.findAll();
-		return res.status(200).json({ categories });
+		return res.status(200).json(categories);
 	}
 }
 export default new CategoryController();
