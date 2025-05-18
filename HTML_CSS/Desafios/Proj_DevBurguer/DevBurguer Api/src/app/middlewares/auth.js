@@ -16,10 +16,11 @@ function authMiddleware(req, res, next) {
 			}
 			req.userId = decoded.id;
 			req.userName = decoded.name;
+			
+			return next(); // Chama o próximo middleware ou rota
 		}); // Verifica se o token é válido
 	} catch (err) {
 		return res.status(401).json({ error: "Token inválido" });
 	}
-	return next(); // Chama o próximo middleware ou rota
 }
 export default authMiddleware;

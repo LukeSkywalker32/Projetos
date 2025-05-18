@@ -1,8 +1,7 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-import BannerHome from "../../assets/SectionTwo/banner-home.svg";
-import Background from "../../assets/SectionOne/background_input.svg"
-
+import BannerHome from '../../assets/SectionTwo/banner-home.svg'
+import Background from '../../assets/SectionOne/background_input.svg'
 
 export const Banner = styled.div`
   background: url('${BannerHome}');
@@ -26,5 +25,8 @@ export const Container = styled.section`
 
 `
 
-export const Content = styled.div``
+export const Content = styled.div`
 
+  /* padding-bottom: 50px; */
+
+`
