@@ -1,8 +1,5 @@
-import { CategoriesCarousel } from '../../components/CategoriesCarousel';
-import { OffersCarousel } from '../../components/OffersCarousel';
-import * as S from './styles';
-
-
+import { OffersCarousel, CategoriesCarousel } from "../../components";
+import * as S from "./styles";
 
 export function Home() {
   return (
@@ -12,8 +9,8 @@ export function Home() {
       </S.Banner>
       <S.Container>
         <S.Content>
-          <CategoriesCarousel/>
-          <OffersCarousel/>            
+          <CategoriesCarousel />
+          <OffersCarousel />
         </S.Content>
       </S.Container>
     </main>

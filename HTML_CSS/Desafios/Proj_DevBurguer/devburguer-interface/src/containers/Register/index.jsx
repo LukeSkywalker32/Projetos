@@ -1,6 +1,6 @@
 import BackLogo from "../../components/AlterLogo";
-import * as S from "./styles";
 import { Button } from "../../components/Button";
+import * as S from "./styles";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 
