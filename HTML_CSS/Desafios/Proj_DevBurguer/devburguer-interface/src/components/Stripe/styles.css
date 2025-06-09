@@ -20,8 +20,6 @@
 
   }
 
-
-
   #payment-form {
     width: 30vw;
     min-width: 500px;
@@ -71,6 +69,14 @@
   #button-form:disabled {
     opacity: 0.5;
     cursor: default;
+  }
+ 
+
+
+  #status-text {
+    margin: 0;
+    color: #30313D;
+    text-align: center;
   }
   
   /* spinner/processing state, errors */
@@ -156,18 +162,19 @@
     border-radius: 50%;
   }
   
-/* 
+
   
-  a {
+  #dpm-integration-checker {
     text-decoration: none;
     font-size: 16px;
+    text-align: center;
     font-weight: 600;
     font-family: Arial, sans-serif;
     display: block;
   }
-  a:hover {
+  #dpm-integration-checker:hover {
     filter: contrast(120%);
-  } */
+  }
   
   #details-table {
     overflow-x: auto;
@@ -206,6 +213,7 @@
   
   #retry-button {
     text-align: center;
+    text-decoration: none;
     background: #0055DE;
     color: #ffffff;
     border-radius: 4px;

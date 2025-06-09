@@ -35,7 +35,7 @@ export function Login() {
     resolver: yupResolver(schema),
   });
   const onSubmit = async (data) => {
-    const {data: userData} = await toast.promise(
+    const { data: userData } = await toast.promise(
       api.post("/session", {
         email: data.email,
         password: data.password,
@@ -44,8 +44,12 @@ export function Login() {
         pending: "Aguarde...",
         success: {
           render() {
-            setTimeout(() => {
-              navigate("/");
+            setTimeout(() => {              
+              if (userData?.admin) {
+                navigate("/admin/pedidos");
+              } else {
+                navigate("/");
+              }
             }, 2000);
             return "Seja Bem-Vindo💕";
           },
@@ -54,7 +58,6 @@ export function Login() {
       }
     );
     putUserData(userData);
-
   };
 
   return (

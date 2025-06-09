@@ -8,8 +8,8 @@ export function Checkout() {
     state: { clientSecret },
   } = useLocation();
 
-  if(!clientSecret) {
-    return <div>Erro!! VOLTE e tente novamente</div>
+  if (!clientSecret) {
+    return <div>Erro!! VOLTE e tente novamente</div>;
   }
 
   return (

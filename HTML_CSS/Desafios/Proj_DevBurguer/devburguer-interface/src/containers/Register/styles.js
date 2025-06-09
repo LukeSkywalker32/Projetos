@@ -31,6 +31,7 @@ export const RightContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  
 
   height: 100%;
   width: 100%;
@@ -38,6 +39,7 @@ export const RightContainer = styled.div`
 
   background: url("${BackgroundInput}");
   background-color: #252525;
+  
 
   p {
     color: #fff;

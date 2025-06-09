@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { toast } from "react-toastify";
-
 import {
   PaymentElement,
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
+
+import { useState } from "react";
+import { toast } from "react-toastify";
 import "../styles.css";
 
 import { useLocation, useNavigate } from "react-router-dom";
@@ -18,9 +18,9 @@ export function CheckoutForm() {
 
   const stripe = useStripe();
   const elements = useElements();
-  //   const {
-  //     state: { dmpCheckerLink },
-  //   } = useLocation();
+  const {
+    state: { dmpCheckerLink },
+  } = useLocation();
 
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -32,7 +32,6 @@ export function CheckoutForm() {
       console.error("Stripe ou Elements com falha, tente novamente.");
       return;
     }
-
     setIsLoading(true);
 
     const { error, paymentIntent } = await stripe.confirmPayment({
@@ -66,7 +65,7 @@ export function CheckoutForm() {
             navigate(
               `/complete?payment_intent_client_secret=${paymentIntent.client_secret}`
             );
-          }, 2500);
+          }, 3000);
           clearCart();
           toast.success("🎉🎉 Pedido realizado com Sucesso!");
         } else if (status === 409) {
@@ -101,7 +100,7 @@ export function CheckoutForm() {
         >
           <span id="button-text">
             {isLoading ? (
-              <div className="spinner" id="spinner"></div>
+              <div className="spinner" id="spinner" />
             ) : (
               "Pagar Agora"
             )}
@@ -110,6 +109,19 @@ export function CheckoutForm() {
         {/* Show any error or success messages */}
         {message && <div id="payment-message">{message}</div>}
       </form>
+      <div id="dpm-annotation">
+        <p>
+          Os métodos de pagamento abaixo são fornecidos por região.&nbsp;
+          <a
+            href={dmpCheckerLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            id="dpm-integration-checker"
+          >
+            Visualizar métodos de pagamento disponíveis
+          </a>
+        </p>
+      </div>
     </div>
   );
 }

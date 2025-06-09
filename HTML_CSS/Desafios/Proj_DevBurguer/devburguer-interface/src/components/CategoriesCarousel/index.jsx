@@ -11,16 +11,12 @@ export function CategoriesCarousel() {
   const [categories, setCategories] = useState([]);
   const navigate = useNavigate();
 
-
   useEffect(() => {
     async function loadCategories() {
-      const { data } = await api.get("/Categories", {
-
-      });
+      const { data } = await api.get("/Categories", {});
 
       setCategories(data);
-      // console.log(data);   
-
+      // console.log(data);
     }
     loadCategories();
   }, []);
@@ -58,16 +54,15 @@ export function CategoriesCarousel() {
         {categories.map((category) => (
           <ContainerItems key={category.id} $imageUrl={category.url}>
             <CategoryButton
-            onClick={() =>{
-              navigate(
-                {
+              onClick={() => 
+                navigate({
                   pathname: "/cardapio",
                   search: `?categoria=${category.id}`
-                }
-              )
-            }}            
-            
-            >{category.name}</CategoryButton>
+                })
+              }
+            >
+              {category.name}
+            </CategoryButton>
           </ContainerItems>
         ))}
       </Carousel>
