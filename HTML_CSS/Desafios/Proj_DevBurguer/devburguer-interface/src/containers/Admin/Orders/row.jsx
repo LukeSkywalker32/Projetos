@@ -13,12 +13,33 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { formatDate } from "../../../utils/formatDate";
 
-export function Row(props) {
-  const { row } = props;
+import { SelectStatus } from "./styles";
+import { orderStatusOptions } from "./orderStatus";
+import { api } from "../../../services/api";
+
+export function Row({ row, orders, setOrders }) {
   const [open, setOpen] = useState(false);
+  const [Loading, setLoading] = useState(false);
+
+  async function newStatusOrder(id, status) {
+    try {
+      setLoading(true);
+      await api.put(`orders/${id}`, { status });
+
+      const newOrders = orders.map((order) =>
+        order._id === id ? { ...order, status } : order
+      );
+      setOrders(newOrders);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return (
     <>
+
       <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
         <TableCell>
           <IconButton
@@ -34,7 +55,18 @@ export function Row(props) {
         </TableCell>
         <TableCell>{row.name}</TableCell>
         <TableCell>{formatDate(row.date)}</TableCell>
-        <TableCell>{row.status}</TableCell>
+        <TableCell>
+          <SelectStatus
+            options={orderStatusOptions.filter((status) => status.id !== 0)}
+            placeholder="Status"
+            defaultValue={orderStatusOptions.find(
+              (status) => status.value === row.status || null
+            )}
+            onChange={(status) => newStatusOrder(row.orderId, status.value)}
+            isLoading={Loading}
+            menuPortalTarget={ document.body }
+          />
+        </TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -64,7 +96,7 @@ export function Row(props) {
                         <img
                           src={product.url}
                           alt={product.name}
-                          style={{ width: "50px", height: "50px" }}
+                          style={{ height: "70px" }}
                         />
                       </TableCell>
                     </TableRow>
@@ -80,6 +112,8 @@ export function Row(props) {
 }
 
 Row.propTypes = {
+  orders: PropTypes.array.isRequired,
+  setOrders: PropTypes.func.isRequired,
   row: PropTypes.shape({
     orderId: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
