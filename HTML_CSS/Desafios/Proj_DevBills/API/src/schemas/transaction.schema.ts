@@ -6,7 +6,7 @@ const isValidObjectId = (id: string): boolean => {
   return ObjectId.isValid(id);
 };
 
-export const createTransaction = z.object({
+export const createTransactionSchema = z.object({
   description: z.string().min(3, "Descrição Obrigatória"),
   amount: z.number().positive("Valor deve ser positivo"),
   date: z.coerce
@@ -17,10 +17,7 @@ export const createTransaction = z.object({
   categoryId: z.string().refine(isValidObjectId, {
     message: "Categoria inválida",
   }),
-  type: z.enum([TransactionType.expense, TransactionType.income], {
-    error: "Data inválida",
+  type: z.enum([TransactionType.income, TransactionType.expense], {
+    error: "Tipo inválido",
   }),
 });
-
-
-export default createTransaction;
