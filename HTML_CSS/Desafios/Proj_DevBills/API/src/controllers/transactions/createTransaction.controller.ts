@@ -1,7 +1,6 @@
 import type { FastifyReply, FastifyRequest } from "fastify";
 import { createTransactionSchema } from "../../schemas/transaction.schema";
 import prisma from "../../config/prisma";
-import { error } from "console";
 
 const createTransaction = async (
   request: FastifyRequest,
@@ -47,7 +46,7 @@ const createTransaction = async (
     });
 
     if (!category) {
-      return reply.status(400).send({error: "Categoria inválida"});
+      return reply.status(400).send({ error: "Categoria inválida" });
     }
 
     const newTransaction = await prisma.transaction.create({
@@ -61,8 +60,10 @@ const createTransaction = async (
       },
     });
     return reply.status(201).send(newTransaction);
+
+
   } catch (error) {
-    console.error("Erro na criação de transação:", error);
+    request.log.error("Erro na criação de transação:", error);
     return reply.status(500).send({ error: "Erro interno do servidor" });
   }
 };
