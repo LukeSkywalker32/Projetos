@@ -19,8 +19,10 @@ export const getTransactions = async (
     reply.status(401).send({ error: "Não autenticado" });
     return;
   }
+  console.log("User ID: ", userId);
 
-    const { month, year, type, categoryId } = request.query;
+  const { month, year, type, categoryId } = request.query as GetTransactionsQuery;
+  console.log("Query Params: ", request.query);
 
   const filters: TransactionFilter = { userId };
 
@@ -38,7 +40,7 @@ export const getTransactions = async (
   if (type) {
     filters.type = type;
   }
-  if (categoryId) {
+  if (typeof categoryId === "string" && categoryId.trim() !== "") {
     filters.categoryId = categoryId;
   }
   try {
