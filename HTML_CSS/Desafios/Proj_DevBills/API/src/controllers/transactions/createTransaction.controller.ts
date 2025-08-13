@@ -60,8 +60,6 @@ const createTransaction = async (
       },
     });
     return reply.status(201).send(newTransaction);
-
-
   } catch (error) {
     request.log.error("Erro na criação de transação:", error);
     return reply.status(500).send({ error: "Erro interno do servidor" });

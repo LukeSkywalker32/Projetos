@@ -18,7 +18,7 @@ export const createTransactionSchema = z.object({
     message: "Categoria inválida",
   }),
   type: z.enum([TransactionType.income, TransactionType.expense], {
-    error: "Tipo inválido",
+    invalid_type_error: "Tipo inválido",
   }),
 });
 
@@ -28,7 +28,7 @@ export const getTransactionsSchema = z.object({
   year: z.string().optional(),
   type: z
     .enum([TransactionType.income, TransactionType.expense], {
-      error: "Tipo inválido",
+      invalid_type_error: "Tipo inválido",
     })
     .optional(),
   categoryId: z
@@ -39,4 +39,29 @@ export const getTransactionsSchema = z.object({
     .optional(),
 });
 
+export const getTransactionsSummarySchema = z.object({
+  month: z.string({
+    required_error: "Mês obrigatório",
+    invalid_type_error: "Mês inválido",
+  }),
+  year: z.string({
+    required_error: "Ano obrigatório",
+    invalid_type_error: "Ano inválido",
+  }),
+});
+
+export const deleteTransactionSchema = z.object({
+  params: z.object({
+    id: z.string().refine(isValidObjectId, {
+      message: "ID inválido",
+    }),
+  }),
+});
+
 export type GetTransactionsQuery = z.infer<typeof getTransactionsSchema>;
+export type GetTransactionsSummaryQuery = z.infer<
+  typeof getTransactionsSummarySchema
+>;
+export type DeleteTransactionParams = z.infer<
+  typeof deleteTransactionSchema
+>["params"];

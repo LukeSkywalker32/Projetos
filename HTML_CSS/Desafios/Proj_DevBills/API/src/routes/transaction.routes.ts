@@ -1,9 +1,10 @@
 import type { FastifyInstance } from "fastify";
 import { zodToJsonSchema } from "zod-to-json-schema";
-import { ZodTypeProvider as Type } from "fastify-type-provider-zod";
 import createTransaction from "../controllers/transactions/createTransaction.controller";
-import { createTransactionSchema, getTransactionsSchema } from "../schemas/transaction.schema";
+import { createTransactionSchema, deleteTransactionSchema, getTransactionsSchema, getTransactionsSummarySchema } from "../schemas/transaction.schema";
 import { getTransactions } from "../controllers/transactions/getTransactions.controller";
+import { getTransactionsSummary } from "../controllers/transactions/getTransactionsSummary.controller";
+import { deleteTransaction } from "../controllers/transactions/deleteTransaction.controller";
 
 const transactionRoutes = async (fastify: FastifyInstance) => {
     
@@ -17,6 +18,9 @@ const transactionRoutes = async (fastify: FastifyInstance) => {
     handler: createTransaction,
   });  
 
+
+
+
   //Buscar com filtros
   fastify.route({
     method: "GET",
@@ -25,6 +29,28 @@ const transactionRoutes = async (fastify: FastifyInstance) => {
       querystring: zodToJsonSchema(getTransactionsSchema),
     },
     handler: getTransactions,
+  });
+
+
+  //Buscar resumo de transações
+  fastify.route({
+    method: "GET",
+    url: "/summary",
+    schema: {
+      querystring: zodToJsonSchema(getTransactionsSummarySchema),
+    },
+    handler: getTransactionsSummary,
+  });
+
+
+  // Deletar Transações
+  fastify.route({
+    method: "DELETE",
+    url: "/:id",
+    schema: {
+      params: zodToJsonSchema(deleteTransactionSchema.shape.params),
+    },
+    handler: deleteTransaction,
   });
 
 };

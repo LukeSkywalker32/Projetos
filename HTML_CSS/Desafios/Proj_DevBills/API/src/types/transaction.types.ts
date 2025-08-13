@@ -1,4 +1,5 @@
 import type { TransactionType } from "@prisma/client";
+import type { CategorySummary } from "./category.types";
 
 export interface TransactionFilter {
   userId: string;
@@ -10,6 +11,11 @@ export interface TransactionFilter {
   categoryId?: string;
 }
 
-//gte = maior ou igual (zod)
-//lte = menor ou igual (zod)
-// acaba criando um range de datas
+
+export interface TransactionSummary {
+  totalIncomes: number;
+  totalExpenses: number;
+  balance: number;
+  expensesByCategory: CategorySummary[];
+}
+
